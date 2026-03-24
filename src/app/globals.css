@@ -1,0 +1,291 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f0ead8;
+  --foreground: #2b1f14;
+  --card: #faf6ec;
+  --border: #b89d7a;
+  --border-dark: #7a5c3a;
+  --accent: #6b3a2a;
+  --accent-gold: #9a7b3c;
+  --surface: #f5eedc;
+  --surface-raised: #fffdf5;
+  --shadow-warm: rgba(60, 30, 10, 0.18);
+  --wood: #5c3d1e;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-sans: "Libre Baskerville", "Cardo", "Georgia", "Times New Roman", serif;
+  --font-display: "IM Fell English", "Georgia", serif;
+  --font-mono: "Courier New", monospace;
+
+  --ornament: "❧";
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"),
+    linear-gradient(160deg, #ede5cc 0%, #e8dfc8 40%, #ddd3b8 100%);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.75;
+  margin: 0;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-style: italic;
+  letter-spacing: 0.02em;
+  line-height: 1.3;
+}
+
+h1 {
+  font-size: 2.4rem;
+}
+h2 {
+  font-size: 1.85rem;
+}
+h3 {
+  font-size: 1.4rem;
+}
+
+h2::after {
+  content: " " var(--ornament);
+  color: var(--accent-gold);
+  font-style: normal;
+  font-size: 0.85em;
+  opacity: 0.7;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: var(--accent-gold);
+  text-underline-offset: 3px;
+  transition:
+    color 0.2s,
+    text-decoration-color 0.2s;
+}
+
+a:hover {
+  color: var(--accent-gold);
+  text-decoration-style: solid;
+}
+
+main,
+.container {
+  background: var(--surface-raised);
+  background-image: repeating-linear-gradient(to bottom, transparent, transparent 27px, rgba(120, 90, 50, 0.06) 28px);
+  border: 1px solid var(--border);
+  outline: 3px solid var(--border-dark);
+  outline-offset: -6px;
+  border-radius: 0.35rem;
+  box-shadow:
+    0 2px 0 0 var(--border-dark),
+    4px 6px 0 0 rgba(60, 30, 10, 0.12),
+    0 14px 40px var(--shadow-warm);
+  padding: 2.5rem 3rem;
+  position: relative;
+}
+
+main::before,
+.container::before {
+  content: "";
+  display: block;
+  height: 4px;
+  background: linear-gradient(90deg, var(--wood), var(--accent-gold) 30%, var(--accent-gold) 70%, var(--wood));
+  border-radius: 0.35rem 0.35rem 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: var(--font-sans);
+}
+
+input,
+textarea,
+select {
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-bottom: 2px solid var(--border-dark);
+  border-radius: 0.2rem;
+  color: var(--foreground);
+  padding: 0.5rem 0.75rem;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 3px rgba(154, 123, 60, 0.15);
+}
+
+button {
+  background: var(--accent);
+  color: #f5eedc;
+  border: 1px solid var(--border-dark);
+  border-bottom: 3px solid var(--wood);
+  border-radius: 0.2rem;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  padding: 0.5rem 1.4rem;
+  text-transform: uppercase;
+  transition:
+    background-color 0.2s,
+    transform 0.1s,
+    box-shadow 0.15s;
+}
+
+button:hover {
+  background: var(--wood);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px var(--shadow-warm);
+}
+
+button:active {
+  transform: translateY(1px);
+  border-bottom-width: 1px;
+  box-shadow: none;
+}
+
+button.ghost {
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--border-dark);
+  border-bottom-width: 1px;
+}
+
+button.ghost:hover {
+  background: rgba(107, 58, 42, 0.08);
+}
+
+hr {
+  border: none;
+  text-align: center;
+  color: var(--accent-gold);
+  opacity: 0.7;
+  margin: 2rem 0;
+}
+
+hr::before {
+  content: "✦ ── ✦ ── ✦";
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+}
+
+blockquote {
+  border-left: 3px solid var(--accent-gold);
+  background: rgba(154, 123, 60, 0.06);
+  color: #4a3020;
+  font-style: italic;
+  margin: 1.5rem 0;
+  padding: 1rem 1.5rem;
+  border-radius: 0 0.2rem 0.2rem 0;
+}
+
+blockquote::before {
+  content: "\201C";
+  font-size: 3rem;
+  color: var(--accent-gold);
+  line-height: 0;
+  vertical-align: -0.6em;
+  margin-right: 0.2em;
+  font-family: var(--font-display);
+  opacity: 0.6;
+}
+
+code,
+pre {
+  font-family: var(--font-mono);
+  background: rgba(91, 61, 30, 0.08);
+  border: 1px solid var(--border);
+  border-radius: 0.2rem;
+}
+
+code {
+  padding: 0.1em 0.35em;
+  font-size: 0.88em;
+}
+pre {
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #ddd3b0;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 2px;
+  border: 2px solid #ddd3b0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--wood);
+}
+
+::selection {
+  background: rgba(154, 123, 60, 0.3);
+  color: var(--foreground);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1c1510;
+    --foreground: #e8dfc8;
+    --card: #251c14;
+    --border: #4a3520;
+    --border-dark: #6b4f2e;
+    --accent: #d4956a;
+    --accent-gold: #c8a84b;
+    --surface: #221911;
+    --surface-raised: #2a1f14;
+    --shadow-warm: rgba(0, 0, 0, 0.55);
+    --wood: #3d2810;
+  }
+
+  body {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E"),
+      linear-gradient(160deg, #1e1610 0%, #1a1208 50%, #160f05 100%);
+  }
+
+  main,
+  .container {
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 27px,
+      rgba(200, 168, 75, 0.05) 28px
+    );
+  }
+}
